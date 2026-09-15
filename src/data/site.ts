@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Việt Phở You',
+  name: 'Viet Phở You',
   phone: '(540) 315-9126',
   phoneHref: 'tel:+15403159126',
   address: {
