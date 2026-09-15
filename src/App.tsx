@@ -1,8 +1,16 @@
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Menu from './pages/Menu'
+
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white">
-      <h1 className="text-4xl font-semibold text-gray-900">VietPhoYou</h1>
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="menu" element={<Menu />} />
+      </Route>
+    </Routes>
   )
 }
 
