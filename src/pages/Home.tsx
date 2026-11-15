@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom'
 import { hours, site } from '../data/site'
 
 const favorites = [
+  { name: 'Deluxe Beef Phở', image: '/images/thumb/deluxe_pho.jpg', anchor: '/menu#pho' },
   { name: 'Chicken Phở', image: '/images/large/chicken_pho.jpg', anchor: '/menu#pho' },
   { name: 'Brisket Phở', image: '/images/large/brisket_pho.jpg', anchor: '/menu#pho' },
   { name: 'Traditional Bánh Mì', image: '/images/large/traditional_banh_mi.jpg', anchor: '/menu#banh-mi' },
   { name: 'Grilled Pork Vermicelli', image: '/images/large/grilled_pork_vermicelli.jpg', anchor: '/menu#bun' },
   { name: 'Pork Spring Rolls', image: '/images/large/pork_spring_rolls.jpg', anchor: '/menu#rolls' },
-  { name: 'Deluxe Beef Phở', image: '/images/thumb/deluxe_pho.jpg', anchor: '/menu#pho' },
 ]
 
 export default function Home() {
@@ -59,18 +59,14 @@ export default function Home() {
               fresh spring rolls, there's something here for everyone.
 
             </p>
-            <div className="mt-7 flex gap-9 border-t border-rule pt-6">
-              <div className="flex flex-col">
+            <div className="mt-7 flex justify-center gap-9 border-t border-rule pt-6">
+              <div className="flex flex-col items-center text-center">
                 <span className="font-display text-3xl text-pine tabular-nums">12+ hrs</span>
                 <span className="text-sm text-ink-soft">Broth simmer time</span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col items-center text-center">
                 <span className="font-display text-3xl text-pine tabular-nums">100%</span>
                 <span className="text-sm text-ink-soft">Made in-house daily</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display text-3xl text-pine tabular-nums">126</span>
-                <span className="text-sm text-ink-soft">Jackson St NE</span>
               </div>
             </div>
           </div>

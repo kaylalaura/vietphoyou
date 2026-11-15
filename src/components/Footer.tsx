@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="font-display text-lg font-semibold text-paper">Viet Phở You</span>
             </div>
             <p className="text-sm">
-              Vietnamese comfort food on Jackson St. — broth simmered since sunrise, served fresh daily.
+              Vietnamese comfort food in downtown Blacksburg.
             </p>
           </div>
           <div>

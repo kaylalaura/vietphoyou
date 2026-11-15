@@ -9,13 +9,9 @@ export default function Menu() {
           <p className="text-xs font-semibold tracking-[0.16em] text-pine uppercase">The Full Menu</p>
           <h1 className="mt-2.5 text-3xl sm:text-5xl">Everything we make, in-house, daily</h1>
           <p className="mt-3 max-w-[60ch] text-base text-ink-soft">
-            Phở, bún, bánh mì, and fresh rolls — browse the menu here, then order for pickup or delivery
-            through MealKeyWay.
+            Browse the menu here, then order for pickup through our online ordering site.
           </p>
-          <p className="mt-4 max-w-[60ch] border-l-2 border-gold pl-3 text-sm text-ink-soft italic">
-            Prices shown below are placeholders for this preview. Final pricing will mirror our live
-            MealKeyWay menu once the site launches.
-          </p>
+          
           <div className="mt-6 flex flex-wrap gap-3.5">
             <a
               href={site.orderUrl}
@@ -58,9 +54,11 @@ export default function Menu() {
               <div className="grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-x-10 md:gap-y-7">
                 {category.items.map((item) => (
                   <div key={item.name} className="flex gap-4">
-                    <div className="h-[78px] w-[78px] flex-shrink-0 overflow-hidden rounded-sm">
-                      <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
-                    </div>
+                    {item.image && (
+                      <div className="h-[78px] w-[78px] flex-shrink-0 overflow-hidden rounded-sm">
+                        <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                      </div>
+                    )}
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline gap-2">
                         <span className="font-display font-semibold">{item.name}</span>

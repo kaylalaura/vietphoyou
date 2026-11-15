@@ -1,6 +1,9 @@
 import { useLayoutEffect, useRef } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useActiveSection } from '../hooks/useActiveSection'
 import { site } from '../data/site'
+
+const SECTION_IDS = ['about', 'visit'] as const
 
 /**
  * Measures the header's real rendered height (it compresses at narrow
@@ -31,9 +34,18 @@ const navLinkClass =
       isActive ? 'border-gold text-pine' : 'border-transparent text-ink-soft'
     }`
 
+const sectionLinkClass = (visibility: string, active: boolean) =>
+  `${visibility} whitespace-nowrap border-b-2 pb-1 pt-1 transition-colors hover:text-pine ${
+    active ? 'border-gold text-pine' : 'border-transparent text-ink-soft'
+  }`
+
 export default function Header() {
   const headerRef = useRef<HTMLElement>(null)
   useHeaderHeightVar(headerRef)
+
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+  const activeSection = useActiveSection(SECTION_IDS, isHome)
 
   return (
     <header
@@ -55,15 +67,15 @@ export default function Header() {
         </Link>
 
         <nav className="mx-auto flex flex-shrink-0 items-center gap-4 text-sm font-medium sm:gap-6">
-          <NavLink to="/#about" className={navLinkClass('hidden md:inline')}>
+          <Link to="/#about" className={sectionLinkClass('hidden md:inline', isHome && activeSection === 'about')}>
             About
-          </NavLink>
+          </Link>
           <NavLink to="/menu" className={navLinkClass('inline text-xs sm:text-sm')}>
             Menu
           </NavLink>
-          <NavLink to="/#visit" className={navLinkClass('hidden md:inline')}>
+          <Link to="/#visit" className={sectionLinkClass('hidden md:inline', isHome && activeSection === 'visit')}>
             Hours &amp; Location
-          </NavLink>
+          </Link>
         </nav>
 
         <div className="ml-auto flex flex-shrink-0 items-center gap-1.5 sm:gap-4">
